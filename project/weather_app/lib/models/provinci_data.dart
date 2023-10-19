@@ -1,8 +1,8 @@
-class City {
+class Provinsi {
   final String id;
   final String name;
 
-  City({
+  Provinsi({
     required this.id,
     required this.name,
   });
@@ -14,8 +14,8 @@ class City {
     };
   }
 
-  factory City.fromJson(Map<String, dynamic> json) {
-    return City(
+  factory Provinsi.fromJson(Map<String, dynamic> json) {
+    return Provinsi(
       id: json['id'],
       name: json['name'],
     );

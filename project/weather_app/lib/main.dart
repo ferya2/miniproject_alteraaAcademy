@@ -1,21 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/db/city_db.dart';
 import 'package:weather_app/screen/getstarted.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  // Buka database
-  final database = await CityDatabase.database;
-
-  // Mengambil data kota
-  final citiesFromDatabase = await CityDatabase.getCities();
-
-  // Cetak nama-nama kota
-  for (final city in citiesFromDatabase) {
-    print('Nama Kota: ${city.name}');
-  }
-
+void main() {
+  
   runApp(MyApp());
 }
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/screen/pilih_kota.dart';
 
-
 class GetStarted extends StatelessWidget {
   const GetStarted({Key? key});
 
@@ -17,10 +16,8 @@ class GetStarted extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              width: screenWidth *
-                  0.5, 
-              height: screenWidth *
-                  0.5, 
+              width: screenWidth * 0.5,
+              height: screenWidth * 0.5,
               child: Image(image: AssetImage('assets/images/gunungfuji.png')),
             ),
             const SizedBox(height: 10), // Jarak antara gambar dan tombol
@@ -28,7 +25,7 @@ class GetStarted extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => PilihKotaPage(),
+                    builder: (context) => ProvinsiKotaPage(),
                   ),
                 );
               },
