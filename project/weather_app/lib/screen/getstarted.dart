@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:weather_app/screen/pilih_kota.dart';
+import 'package:weather_app/screen/city_screen.dart';
+
 
 class GetStarted extends StatelessWidget {
   const GetStarted({Key? key});
@@ -25,7 +26,7 @@ class GetStarted extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => ProvinsiKotaPage(),
+                    builder: (context) => CityScreen(),
                   ),
                 );
               },
