@@ -3,7 +3,7 @@
 import 'package:dio/dio.dart';
 
 const String apiKey =
-    '5092bfc810193508e10aa20f94167ad9'; 
+    'YOUR_API_KEY'; 
 
 class WeatherApiClient {
   final Dio dio = Dio();
