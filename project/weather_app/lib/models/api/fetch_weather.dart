@@ -2,8 +2,7 @@
 
 import 'package:dio/dio.dart';
 
-const String apiKey =
-    '5092bfc810193508e10aa20f94167ad9'; 
+const String apiKey = 'YOUR_API_KEY';
 
 class WeatherApiClient {
   final Dio dio = Dio();
@@ -11,7 +10,7 @@ class WeatherApiClient {
   Future<Map<String, dynamic>> getCurrentWeather(String city) async {
     try {
       final response = await dio.get(
-          'https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey');
+          'https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&lang=id');
 
       if (response.statusCode == 200) {
         return response.data;
