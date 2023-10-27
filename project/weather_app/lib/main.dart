@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/screen/city_screen.dart';
 import 'package:weather_app/screen/getstarted.dart';
 import 'package:weather_app/screen/halamancuaca.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
-  runApp(MyApp());
+  Intl.defaultLocale = 'id_ID';
+  initializeDateFormatting().then((_) {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {

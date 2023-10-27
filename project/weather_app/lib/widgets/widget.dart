@@ -33,17 +33,17 @@ class RoundedRectangleWeatherCard extends StatelessWidget {
         ),
         padding: EdgeInsets.all(16.0),
         child: Row(
-          // Menggunakan Row untuk menempatkan elemen secara horizontal
+          
           children: <Widget>[
             Image.asset(
               imageAsset,
               width: 48,
               height: 48,
             ),
-            SizedBox(width: 8.0), // Memberikan jarak horizontal antara elemen
+            SizedBox(width: 8.0), 
             Column(
               crossAxisAlignment:
-                  CrossAxisAlignment.start, // Menempatkan teks ke sisi kiri
+                  CrossAxisAlignment.start, 
               children: <Widget>[
                 Text(
                   title,
@@ -53,7 +53,7 @@ class RoundedRectangleWeatherCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 4.0), // Memberikan jarak vertikal antara teks
+                SizedBox(height: 4.0), 
                 Text(
                   value,
                   style: TextStyle(

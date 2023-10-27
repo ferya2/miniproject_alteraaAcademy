@@ -2,11 +2,12 @@
 
 import 'package:dio/dio.dart';
 
-const String apiKey =
-    'YOUR_API_KEY'; 
+String apiKey = 'YOUR_API_KEY';
 
 class WeatherApiClient {
   final Dio dio = Dio();
+
+  WeatherApiClient(String apiKey);
 
   Future<Map<String, dynamic>> getCurrentWeather(String city) async {
     try {

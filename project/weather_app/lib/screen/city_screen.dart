@@ -4,6 +4,17 @@ import 'package:weather_app/models/indonesia_data.dart';
 import 'package:weather_app/screen/halamancuaca.dart';
 import 'package:weather_app/utils/json_parser.dart';
 
+class CityScreenHome extends StatelessWidget {
+  const CityScreenHome({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: CityScreen(),
+    );
+  }
+}
+
 class CityScreen extends StatefulWidget {
   const CityScreen({Key? key}) : super(key: key);
 
@@ -75,7 +86,7 @@ class _CityScreenState extends State<CityScreen> {
                 return ListTile(
                   title: Text(_filteredCities[index].name),
                   onTap: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => CurrentWeatherPage(
