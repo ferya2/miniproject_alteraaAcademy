@@ -22,15 +22,16 @@ class _DetailForecastState extends State<DetailForecast> {
   @override
   void initState() {
     super.initState();
-    _loadForecastData();
+    _loadForecastData(); // Load forecast data
   }
 
-  void _loadForecastData() async {
-    final city = widget.city;
+  // Function to load forecast data
+  void _loadForecastData() async { 
+    final city = widget.city; // Get city
     final apiUrl =
         'https://api.openweathermap.org/data/2.5/forecast?q=$city&appid=$apiKey&lang=id';
 
-    final response = await http.get(Uri.parse(apiUrl));
+    final response = await http.get(Uri.parse(apiUrl)); // Get response
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
@@ -54,19 +55,19 @@ class _DetailForecastState extends State<DetailForecast> {
         centerTitle: true,
         elevation: 5,
       ),
-      body: _buildForecastList(),
+      body: _buildForecastList(), // Build forecast list
     );
   }
-
+  // Function to build forecast list
   Widget _buildForecastList() {
     return ListView.builder(
-      itemCount: forecastData.length,
-      itemBuilder: (context, index) {
-        final forecast = forecastData[index];
+      itemCount: forecastData.length, // Set item count
+      itemBuilder: (context, index) { // Build item
+        final forecast = forecastData[index]; // Get forecast
         final dateTime =
-            DateTime.fromMillisecondsSinceEpoch(forecast['dt'] * 1000);
-        final day = DateFormat('EEE', 'id_ID').format(dateTime);
-        final time = DateFormat.jm('id_ID').format(dateTime);
+            DateTime.fromMillisecondsSinceEpoch(forecast['dt'] * 1000); // Get date time
+        final day = DateFormat('EEE', 'id_ID').format(dateTime); // Get day
+        final time = DateFormat.jm('id_ID').format(dateTime); // Get time
 
         return Container(
           margin: EdgeInsets.all(16),
@@ -102,15 +103,16 @@ class _DetailForecastState extends State<DetailForecast> {
                     ),
                   ],
                 ),
+              
                 Text(
-                  forecast['weather'][0]['description'] ?? 'Loading...',
+                  forecast['weather'][0]['description'] ?? 'Loading...', // Get description
                   style: GoogleFonts.poppins(fontSize: 15),
                 ),
                 Text(
-                  '${forecast['main']['temp']} °C' ?? 'Loading...',
+                  '${forecast['main']['temp']} °C' ?? 'Loading...', // Get temperature
                   style: GoogleFonts.poppins(fontSize: 18),
                 ),
-                if (forecast['weather'][0]['icon'] != null)
+                if (forecast['weather'][0]['icon'] != null) // Get icon
                   Image.network(
                     'https://openweathermap.org/img/wn/${forecast['weather'][0]['icon']}.png',
                     width: 50,

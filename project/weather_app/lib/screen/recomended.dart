@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RecomendedPage extends StatefulWidget {
-  final String result;
+  final String result; // Parameter
 
-  const RecomendedPage({Key? key, required this.result}) : super(key: key);
+  const RecomendedPage({Key? key, required this.result}) : super(key: key); // Constructor
 
   @override
   _RecomendedPageState createState() => _RecomendedPageState();
 }
 
 class _RecomendedPageState extends State<RecomendedPage> {
-  bool showFullText = false;
+  bool showFullText = false; // Flag to show full text
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +38,8 @@ class _RecomendedPageState extends State<RecomendedPage> {
             child: Column(
               children: <Widget>[
                 Text(
-                  showFullText || widget.result.length <= 300
-                      ? widget.result
+                  showFullText || widget.result.length <= 300 // Show full text or first 300 characters
+                      ? widget.result //  Show rsult full text
                       : '${widget.result.substring(0, 300)}${String.fromCharCode(8230)}',
                   style: GoogleFonts.poppins(fontSize: 16),
                 ),
@@ -47,7 +47,7 @@ class _RecomendedPageState extends State<RecomendedPage> {
                   TextButton(
                     onPressed: () {
                       setState(() {
-                        showFullText = !showFullText;
+                        showFullText = !showFullText; // Toggle showFullText
                       });
                     },
                     child: Text(
