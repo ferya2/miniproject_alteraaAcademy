@@ -23,21 +23,22 @@ class CityScreen extends StatefulWidget {
 }
 
 class _CityScreenState extends State<CityScreen> {
-  final TextEditingController _searchController = TextEditingController();
-  List<IndonesianCity> _cities = [];
-  List<IndonesianCity> _filteredCities = [];
-
+  final TextEditingController _searchController = TextEditingController(); // Controller for search
+  List<IndonesianCity> _cities = []; // List of cities
+  List<IndonesianCity> _filteredCities = []; // List of filtered cities
+  
   @override
   void initState() {
     super.initState();
-    loadIndonesianCities().then((cities) {
-      setState(() {
-        _cities = cities;
-        _filteredCities = List.from(cities);
+    loadIndonesianCities().then((cities) { // Load cities
+      setState(() { // Set state
+        _cities = cities; // Set cities
+        _filteredCities = List.from(cities); // Set filtered cities
       });
     });
   }
 
+  // Function to filter cities based on search query
   void searchCities(String query) {
     setState(() {
       if (query.isEmpty) {
@@ -70,7 +71,7 @@ class _CityScreenState extends State<CityScreen> {
             child: TextField(
               controller: _searchController,
               onChanged: (query) {
-                searchCities(query);
+                searchCities(query); // Call searchCities
               },
               decoration: InputDecoration(
                 hintText: "Cari Kota",
@@ -81,16 +82,16 @@ class _CityScreenState extends State<CityScreen> {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: _filteredCities.length,
-              itemBuilder: (context, index) {
+              itemCount: _filteredCities.length, // Set item count
+              itemBuilder: (context, index) { // Set item builder
                 return ListTile(
-                  title: Text(_filteredCities[index].name),
+                  title: Text(_filteredCities[index].name), 
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CurrentWeatherPage(
-                          city: _filteredCities[index].name,
+                        builder: (context) => CurrentWeatherPage( // Set route
+                          city: _filteredCities[index].name, // Set city
                         ),
                       ),
                     );

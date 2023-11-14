@@ -22,6 +22,7 @@ class RecomendationService {
         totalToken: 0,
       ),
     );
+    
     try {
       var url = Uri.parse("https://api.openai.com/v1/completions");
       Map<String, String> headers = {

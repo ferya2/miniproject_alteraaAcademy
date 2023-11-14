@@ -41,5 +41,4 @@ class GPTData {
         "choices": List<dynamic>.from(choices.map((x) => x.toJson())),
         "usage": usage.toJson(),
       };
-  }
-
+}

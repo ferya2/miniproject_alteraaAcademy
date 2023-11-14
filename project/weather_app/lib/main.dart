@@ -5,7 +5,9 @@ import 'package:weather_app/screen/halamancuaca.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+
 void main() {
+  
   Intl.defaultLocale = 'id_ID';
   initializeDateFormatting().then((_) {
     runApp(MyApp());
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
               ModalRoute.of(context)!.settings.arguments as Map<String, String>;
           return CurrentWeatherPage(city: args['city']!);
         },
+        // '/news': (context) => BeritaGempa(),
       },
     );
   }
